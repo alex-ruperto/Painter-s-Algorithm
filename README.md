@@ -1,1 +1,1 @@
-# Painter-s-Algorithm
+# Painter's Algorithm
