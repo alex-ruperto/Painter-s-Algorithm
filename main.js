@@ -53,3 +53,33 @@ function loadShader(gl, type, source) {
     }
     return shader;
 }
+
+// initialize shader program for drawing
+const shaderProgram = initShaderProgram(gl, vsSource, fsSource);
+const programInfo = {
+    program: shaderProgram,
+    attribLocations: {
+        vertexPosition: gl.getAttribLocation(shaderProgram, 'aVertexPosition'),
+    },
+    uniformLocations: {
+        projectionMatrix: gl.getUniformLocation(shaderProgram, 'uProjectionMatrix'),
+        modelViewMatrix: gl.getUniformLocation(shaderProgram, 'uModelViewMatrix'),
+        color: gl.getUniformLocation(shaderProgram, 'uColor'),
+    },
+};
+
+// initialize the buffers
+function initBuffers(gl) {
+    // create a buffer for the position of the squares
+    const positionBuffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+
+    // create a position array for the square
+    const positions = [
+        1.0, 1.0,
+        -1.0, 1.0,
+        1.0, -1.0,
+        -1.0, -1.0
+    ];
+}
+
